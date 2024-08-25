@@ -568,7 +568,7 @@
 									<span class="social-icons-x ps-3"><a href="http://www.twitter.com/@asinarymaps" target="_blank" class="text-color-dark font-weight-semibold" title="Twitter"><i class="me-1 fab fa-x-twitter"></i> TWITTER</a></span>
 									<span class="social-icons-discord ps-3"><a href="https://discord.gg/KYrNEbduuv" target="_blank" class="text-color-dark font-weight-semibold" title="Discord"><i class="me-1 fab fa-discord"></i> DISCORD</a></span>
 									<p class="text-3 mb-4">Fill out your request below.</p>
-									<form class="contact-form form-style-2 pe-xl-5" action="php/contact-form.php" method="POST">
+									<form class="contact-form form-style-2 pe-xl-5" action="https://formspree.io/f/mkgwkazk" method="POST">
 										<div class="contact-form-success alert alert-success d-none mt-4">
 											<strong>Success!</strong> Your message has been sent to us.
 										</div>
@@ -630,7 +630,7 @@
 									</div>
 									<div class="feature-box-info ps-1">
 										<h5 class="font-weight-light text-color-light opacity-7 mb-0">CALL US NOW</h5>
-										<a href="tel:+8001234567" class="text-color-light font-weight-semibold text-decoration-none">+353 871122334</a>
+										<a href="tel:+8001234567" class="text-color-light font-weight-semibold text-decoration-none">+353871122334</a>
 									</div>
 								</div>
 							</div>
@@ -685,65 +685,6 @@
 
 	<!-- Examples -->
 		<script src="js/examples/examples.portfolio.js"></script>
-
-		<!-- Google Maps -->
-		<script>
-
-			/* 
-			Map Markers:
-			- Get an API Key: https://developers.google.com/maps/documentation/javascript/get-api-key
-			- Generate Map Id: https://console.cloud.google.com/google/maps-apis/studio/maps
-			- Use https://www.latlong.net/convert-address-to-lat-long.html to get Latitude and Longitude of a specific address
-			*/
-			(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
-				({key: "YOUR_API_KEY", v: "weekly"});
-
-			async function initMap() {
-				const { Map, InfoWindow } = await google.maps.importLibrary("maps");
-				const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary(
-					"marker",
-				);
-				const map = new Map(document.getElementById("googlemaps"), {
-					zoom: 14,
-					center: { lat: -37.817240, lng: 144.955820 },
-					mapId: "YOUR_MAP_API_ID",
-				});
-				const markers = [
-					{
-						position: { lat: -37.817240, lng: 144.955820 },
-						title: "Office 1<br>Melbourne, 121 King St, Australia<br>Phone: 123-456-1234",
-					}
-				];
-
-				const infoWindow = new InfoWindow();
-
-				markers.forEach(({ position, title }, i) => {
-					const pin = new PinElement({
-						background: "#e36159",
-						borderColor: "#e36159",
-						glyphColor: "#FFF",
-					});
-					const marker = new AdvancedMarkerElement({
-						position,
-						map,
-						title: `${title}`,
-						content: pin.element,
-					});
-
-					marker.addListener("click", ({ domEvent, latLng }) => {
-						const { target } = domEvent;
-
-						infoWindow.close();
-						infoWindow.setContent(marker.title);
-						infoWindow.open(marker.map, marker);
-					});
-				});	
-
-			}
-
-			initMap();	
-
-		</script>
 
 	</body>
 </html>
